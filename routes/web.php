@@ -16,3 +16,30 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/students', function() {
+
+  $students = [
+    [
+      'nome' => 'Aldo',
+      'cognome' => 'Cahuana',
+      'voto' => 10,
+    ],
+    [
+      'nome' => 'Carlo',
+      'cognome' => 'Marsala',
+      'voto' => 8,
+    ],
+    [
+      'nome' => 'Rosy',
+      'cognome' => 'Ferrarese',
+      'voto' => 5,
+    ]
+  ];
+
+  return view('students', [
+    'teacher' => 'Lucky',
+    'eta_teacher' => 29,
+    'students' => $students,
+  ]);
+});
