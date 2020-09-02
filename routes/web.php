@@ -17,29 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/students', function() {
+Route::get('/students', 'StudentController@index')->name('students');
 
-  $students = [
-    [
-      'nome' => 'Aldo',
-      'cognome' => 'Cahuana',
-      'voto' => 10,
-    ],
-    [
-      'nome' => 'Carlo',
-      'cognome' => 'Marsala',
-      'voto' => 8,
-    ],
-    [
-      'nome' => 'Rosy',
-      'cognome' => 'Ferrarese',
-      'voto' => 5,
-    ]
-  ];
-
-  return view('students', [
-    'teacher' => 'Lucky',
-    'eta_teacher' => 29,
-    'students' => $students,
-  ]);
-});
+Route::get('/students-handlebars', 'StudentController@handlebars')->name('handlebars');
