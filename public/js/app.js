@@ -35300,7 +35300,25 @@ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"
 var Handlebars = __webpack_require__(/*! handlebars */ "./node_modules/handlebars/dist/cjs/handlebars.js");
 
 $(document).ready(function () {
-  alert('test');
+  $.ajax({
+    url: 'http://127.0.0.1:8000/api/students',
+    method: 'GET',
+    success: function success(dataResponse) {
+      var allStudents = dataResponse.students;
+      var source = $('#student-template').html();
+      var template = Handlebars.compile(source);
+
+      for (var i = 0; i < allStudents.length; i++) {
+        var thisStudent = allStudents[i]; // console.log(thisStudent);
+
+        var html = template(thisStudent);
+        $('#student-list').append(html);
+      }
+    },
+    error: function error() {
+      alert('error');
+    }
+  });
 });
 
 /***/ }),

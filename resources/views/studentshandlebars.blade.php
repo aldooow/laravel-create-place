@@ -1,18 +1,24 @@
 <h1>Lista di Studenti</h1>
 
-<div id="students-list">
-  PROVA
+<div id="student-list">
+
+
+
+
 </div>
+<script id="student-template" type="text/x-handlebars-template">
+  <div>
+
+    <h2>Nome studente: @{{ nome }} @{{ cognome }}</h2>
+    <h4>Voto: @{{ voto }}</h4>
+
+  </div>
+</script>
 
 <script src="{{ asset('js/app.js') }}">
 
 </script>
 {{--
 @foreach ($students as $student)
-<div>
 
-  <h2>Nome studente: </h2>
-  <h4>Voto: </h4>
-
-</div>
 @endforeach --}}
